@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                echo 'build: ' ${env.BUILD_ID} 'on' ${env.JENKINS_URL}
+                echo 'build: ${env.BUILD_ID} on ${env.JENKINS_URL}'
             }
         }
         stage('Test') {
