@@ -1,6 +1,9 @@
 pipeline {
   agent any
   stages {
+    options {
+      timestamps()
+    }
     stage('Build') {
       steps {
         echo 'Building...'
