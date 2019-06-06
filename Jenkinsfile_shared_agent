@@ -1,0 +1,14 @@
+pipeline {
+    agent {label "jnlp-cmd-linux"}
+    stages {
+        stage('Header') {
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                sh """
+                echo $LANG
+                java -version
+                """
+            }
+        }
+    }
+}
