@@ -1,0 +1,46 @@
+pipeline {
+    agent none
+
+    stages {
+        stage("build and deploy on Windows and Linux") {
+            parallel {
+                stage("windows") {
+                    agent {
+                        label "master"
+                    }
+                    stages {
+                        stage("build-A") {
+                            steps {
+                                echo "run-build.bat"
+                                sleep 20
+                            }
+                        }
+                        stage("deploy-A") {
+                            steps {
+                                echo "run-deploy.bat"
+                                sleep 30
+                            }
+                        }
+                    }
+                }
+                stage("linux") {
+                    agent {
+                        label "master"
+                    }
+                    stages {
+                        stage("build-B") {
+                            steps {
+                                echo "./run-build.sh"
+                            }
+                        }
+                        stage("deploy-B") {
+                             steps {
+                                echo "./run-deploy.sh"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
