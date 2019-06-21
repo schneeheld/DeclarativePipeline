@@ -12,7 +12,7 @@ pipeline {
       parallel {
         stage('Test') {
           steps {
-            echo 'Testing...'
+            echo 'Testing....'
           }
         }
         stage('Functional') {
