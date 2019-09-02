@@ -1,38 +1,13 @@
-pipeline {
-  agent { label "node2" }
-  stages {
-    stage('Build') {
-      options { timestamps() }
-      steps {
-        echo 'Building...'
-        echo 'build: ${env.BUILD_ID} on ${env.JENKINS_URL}'
-      }
+peline {
+    agent any
+    parameters {
+        string(name: 'readonly', defaultValue: 'true', description: 'Read/Write status')
     }
-    stage('Test') {
-      parallel {
-        stage('Test') {
-          steps {
-            echo 'Testing...'
-          }
+    stages {
+        stage('STEP-A') {
+            steps {
+                echo "${params.readonly}"
+            }
         }
-        stage('Functional') {
-          steps {
-            sh 'echo "Functional tests..."'
-          }
-        }
-      }
     }
-    stage('Deploy') {
-      options { timestamps() }
-      steps {
-        echo 'Deploying....'
-      }
-    }
-    stage('Prod') {
-      steps {
-        sh 'echo "Production..."'
-        sleep 10
-      }
-    }
-  }
 }
