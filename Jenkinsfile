@@ -1,4 +1,4 @@
-String cron_string "H/2 * * * *"
+String cron_string "* * * * *"
 
 pipeline {
     agent any
