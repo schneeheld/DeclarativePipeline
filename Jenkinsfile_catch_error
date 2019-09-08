@@ -18,5 +18,11 @@ pipeline {
                 sh 'exit 0'
             }
         }
+        stage('4') {
+            steps {
+                echo "Done."
+                sh 'exit 0'
+            }
+        }        
     }
 }
