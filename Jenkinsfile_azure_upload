@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stage('Upload Azure') {
+            steps {
+                sh "echo 'Pipeline upload to Azure blob' > fileName.log"
+
+                azureUpload(
+                    storageCredentialId: "azBlob", storageType: "blobstorage",
+                    containerName: "cjoc", filesPath: "*.log", virtualPath: "folderName")
+            }
+        }
+    }
+}
