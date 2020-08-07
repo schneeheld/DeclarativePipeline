@@ -20,6 +20,7 @@ pipeline {
                         stage("Test-B") {
                             steps {
                                 echo "Test B..."
+                                sh "dd if=/dev/zero of=file.bin count=1 bs=500M"
                                 sleep 30
                             }
                         }
@@ -30,6 +31,7 @@ pipeline {
                         stage("Test-C") {
                             steps {
                                 echo "Test C..."
+                                sh "dd if=/dev/zero of=file.bin count=1 bs=500M"
                                 sleep 90
                             }
                         }
