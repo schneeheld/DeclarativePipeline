@@ -1,0 +1,12 @@
+import groovy.json.JsonSlurper
+
+@NonCPS
+def loadJson() {
+  def inputFile = new File("/var/jenkins_home/.temp/bigfile.json")
+  def InputJSON1 = new JsonSlurper().parseText(inputFile.text)
+}
+
+while (true) {
+    println "Loading JSON"
+    loadJson()
+}

@@ -1,0 +1,21 @@
+import java.util.Vector
+import java.lang.Runtime
+import java.lang.System
+
+@NonCPS
+def eat() {
+    Vector v = new java.util.Vector();
+    // while more than 100MB remaining
+    while(Runtime.getRuntime().freeMemory() > 104857600L) {
+        // Adding 1MB
+        byte[] b = new byte[102400];
+        v.add(b);
+    }
+    v = null
+}
+
+while (true) {
+    //println "free memory: " + Runtime.getRuntime().freeMemory()
+    eat()
+    System.gc()
+}
