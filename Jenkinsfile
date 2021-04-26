@@ -1,5 +1,6 @@
 pipeline {
-  agent { label "node2" }
+  // agent { label "node2" }
+  agent any
   stages {
     stage('Build') {
       options { timestamps() }
