@@ -3,7 +3,7 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      options { timestamps() }
+      // options { timestamps() }
       steps {
         echo 'Building...'
         echo 'build: ${env.BUILD_ID} on ${env.JENKINS_URL}'
@@ -24,7 +24,7 @@ pipeline {
       }
     }
     stage('Deploy') {
-      options { timestamps() }
+      // options { timestamps() }
       steps {
         echo 'Deploying....'
       }
